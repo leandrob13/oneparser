@@ -1,0 +1,8 @@
+*dotty*
+.DS_Store
+.idea
+*target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
