@@ -15,7 +15,6 @@ class EncoderTest {
     val enc = Encoder[PrimitiveTest]
 
     val xmlPt = enc.toXml(pt)
-
     assertEquals(xmlPt, xml)
   }
 
@@ -27,7 +26,6 @@ class EncoderTest {
     val enc = Encoder[TypeTest]
 
     val xmlTt = enc.toXml(tt)
-
     assertEquals(xmlTt, xml)
   }
 }
