@@ -1,7 +1,7 @@
 <typeTest>
   <name>test</name>
-  <primitive/>
-  <primitives>
+  <p/>
+  <ps>
     <primitiveTest>
       <a>a</a>
       <b>1</b>
@@ -26,5 +26,7 @@
       <e>0.2</e>
       <f>true</f>
     </primitiveTest>
-  </primitives>
+  </ps>
+  <enumerator>One</enumerator>
+  <adt><i>1</i></adt>
 </typeTest>

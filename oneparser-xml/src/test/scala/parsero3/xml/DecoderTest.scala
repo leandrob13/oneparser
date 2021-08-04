@@ -22,7 +22,7 @@ class DecoderTest {
   @Test def decodeTypes() = {
     val xml = loadFile("/TypeTest.xml")
     val pt = PrimitiveTest("a", 1, 0.1, 2, 0.2, true)
-    val tt = TypeTest(Some("test"), None, List(pt, pt, pt))
+    val tt = TypeTest(Some("test"), None, List(pt, pt, pt), None, AdtTest.IntAdt(1))
 
     val dec = Decoder[TypeTest]
 

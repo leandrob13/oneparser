@@ -4,7 +4,8 @@ sealed trait TagFormat {
   def formatCase[T](t: T): String = {
     val (first, rest) = t match {
       case s: String => s.splitAt(1)
-      case _ => t.getClass.getSimpleName.splitAt(1)  
+      case e: Product if e.productArity == 0 => e.toString.splitAt(1)
+      case _ => t.getClass.getSimpleName.splitAt(1)
     }
     tag(first, rest)
   }

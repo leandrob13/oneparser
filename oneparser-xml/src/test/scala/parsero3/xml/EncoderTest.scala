@@ -21,11 +21,10 @@ class EncoderTest {
   @Test def encodeTypes() = {
     val xml = loadFile("/TypeTest.xml")
     val pt = PrimitiveTest("a", 1, 0.1, 2, 0.2, true)
-    val tt = TypeTest(Some("test"), None, List(pt, pt, pt))
-
+    val tt = TypeTest(Some("test"), None, List(pt, pt, pt), Some(EnumTest.One), AdtTest.IntAdt(1))
     val enc = Encoder[TypeTest]
-
     val xmlTt = enc.toXml(tt)
+
     assertEquals(xmlTt, xml)
   }
 }

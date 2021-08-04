@@ -8,6 +8,7 @@ trait Encoder[T] {
   def toXml(t: T, rootLabel: String, format: TagFormat): NodeSeq = {
     val tx = toXml(t)
     val label = format.formatCase(rootLabel)
+
     tx \\ format.formatCase(t) match {
       case NodeSeq.Empty =>
         Elem(null, label, Null, TopScope, true, tx: _*)
