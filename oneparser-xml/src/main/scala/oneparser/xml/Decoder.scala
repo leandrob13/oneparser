@@ -9,8 +9,8 @@ trait Decoder[T] {
 
 object Decoder extends DecoderDerivation {
   import ParseError._
-
-  def apply[T](implicit c: Decoder[T]): Decoder[T] = c
+  
+  def apply[T](using c: Decoder[T]): Decoder[T] = c
 
   def instance[T](f: NodeSeq => ParseError Either T): Decoder[T] =
     f(_)

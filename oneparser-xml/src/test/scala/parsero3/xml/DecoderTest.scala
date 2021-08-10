@@ -6,14 +6,12 @@ import org.junit.Test
 import org.junit.Assert._
 
 class DecoderTest {
-  import EncoderTest._
+  import DecoderTest._
 
   @Test def decodePrimitiveTypes() = {
     val xml = loadFile("/PrimitiveTest.xml")
     val pt = PrimitiveTest("a", 1, 0.1, 2, 0.2, true)
-
     val dec = Decoder[PrimitiveTest]
-
     val xmlTopt = dec.fromXml(xml)
 
     assertEquals(xmlTopt, Right(pt))
@@ -22,10 +20,8 @@ class DecoderTest {
   @Test def decodeTypes() = {
     val xml = loadFile("/TypeTest.xml")
     val pt = PrimitiveTest("a", 1, 0.1, 2, 0.2, true)
-    val tt = TypeTest(Some("test"), None, List(pt, pt, pt), None, AdtTest.IntAdt(1))
-
+    val tt = TypeTest(Some("test"), None, List(pt, pt, pt), Some(EnumTest.One), AdtTest.IntAdt(1))
     val dec = Decoder[TypeTest]
-
     val xmlTtopt = dec.fromXml(xml)
 
     assertEquals(xmlTtopt, Right(tt))
